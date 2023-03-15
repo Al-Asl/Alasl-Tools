@@ -14,7 +14,7 @@ namespace AlaslTools
             return clipSpaceNormal.z >= 0;
         }
 
-        public static bool RayTriangleIntersect(this Ray ray, Vector3 a, Vector3 b, Vector3 c
+        public static bool TriangleIntersection(this Ray ray, Vector3 a, Vector3 b, Vector3 c
             , ref float t, ref Vector3 bary, ref Vector3 normal)
         {
             Vector3 ba = b - a;
@@ -50,20 +50,21 @@ namespace AlaslTools
 
             return true;
         }
-        public static bool RayIntersectQuad(this Ray ray, Vector3[] points, ref float dist, ref Vector3 normal)
+
+        public static bool QuadIntersection(this Ray ray, Vector3[] points, ref float dist, ref Vector3 normal)
         {
             dist = float.MaxValue;
             bool didHit = false;
 
             float t = 0; Vector3 b = default; Vector3 n = default;
-            if (ray.RayTriangleIntersect(points[0], points[1], points[2]
+            if (ray.TriangleIntersection(points[0], points[1], points[2]
                 , ref t, ref b, ref n))
             {
                 didHit = true;
                 dist = t;
                 normal = n;
             }
-            if (ray.RayTriangleIntersect(points[0], points[2], points[3]
+            if (ray.TriangleIntersection(points[0], points[2], points[3]
                 , ref t, ref b, ref n))
             {
                 didHit = true;

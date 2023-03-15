@@ -120,7 +120,7 @@ namespace AlaslTools
                 var ray = HandleUtility.GUIPointToWorldRay(Event.current.mousePosition);
 
                 float dist = 0f; Vector3 normal = default;
-                if (ray.RayIntersectQuad(GetPlanePoints(matrix), ref dist, ref normal))
+                if (ray.QuadIntersection(GetPlanePoints(matrix), ref dist, ref normal))
                 {
                     if (Vector3.Dot(-matrix.GetColumn(2), normal) > 0)
                         WorldRayCastManager.Submit(dist, id);
@@ -227,7 +227,7 @@ namespace AlaslTools
         public class DragHandle : BaseHandle
         {
             protected override string name => "DragHandle";
-            public bool DidClick => didClick;
+            public bool Start => didClick;
             private bool didClick;
 
             public bool Draw<T>() where T : ILayoutFromDraw, new()
