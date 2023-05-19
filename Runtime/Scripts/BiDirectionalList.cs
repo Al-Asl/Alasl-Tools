@@ -32,12 +32,14 @@ namespace AlaslTools
             reverse = new Dictionary<T, int>();
         }
 
-        public BiDirectionalList(List<T> forward)
+        public BiDirectionalList(IEnumerable<T> list) : this(new List<T>(list)) { }
+
+        public BiDirectionalList(List<T> list)
         {
-            this.forward = forward;
-            reverse = new Dictionary<T, int>(forward.Count);
-            for (int i = 0; i < forward.Count; i++)
-                reverse[forward[i]] = i;
+            forward = list;
+            reverse = new Dictionary<T, int>(list.Count);
+            for (int i = 0; i < list.Count; i++)
+                reverse[list[i]] = i;
         }
 
         public List<T> GetList() => forward;
