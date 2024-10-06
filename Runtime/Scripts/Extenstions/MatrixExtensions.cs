@@ -15,7 +15,7 @@ namespace AlaslTools
             rotation[(int)axis] = angle;
             return Matrix4x4.Translate(pivot) * Matrix4x4.Rotate(Quaternion.Euler(rotation)) * Matrix4x4.Translate(-pivot) * matrix;
         }
-        public static Matrix4x4 Mirorr(this Matrix4x4 matrix, Vector3 pivot, Axis axis)
+        public static Matrix4x4 Mirror(this Matrix4x4 matrix, Vector3 pivot, Axis axis)
         {
             Vector3 scale = Vector3.one;
             scale[(int)axis] = -1;

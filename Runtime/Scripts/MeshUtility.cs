@@ -70,13 +70,13 @@ namespace AlaslTools
 
         public static void Mirror(List<Vector3> verts, List<Vector3> norms, Vector3 pivot, Axis axis)
         {
-            TransformMesh(verts, norms, Matrix4x4.identity.Mirorr(pivot, axis));
+            TransformMesh(verts, norms, Matrix4x4.identity.Mirror(pivot, axis));
         }
 
         public static void Mirror(Mesh mesh, Vector3 pivot, Axis axis)
         {
             FlipFaces(mesh);
-            TransformMesh(mesh, Matrix4x4.identity.Mirorr(pivot, axis));
+            TransformMesh(mesh, Matrix4x4.identity.Mirror(pivot, axis));
         }
 
         public static void TransformMesh(Mesh mesh, Matrix4x4 transform)

@@ -2,6 +2,30 @@
 
 namespace AlaslTools
 {
+    public enum Direction2D
+    {
+        TopLeft = HorizontalDirection.Left | VerticalDirection.Top,
+        Top = HorizontalDirection.Center | VerticalDirection.Top,
+        TopRight = HorizontalDirection.Right | VerticalDirection.Top,
+
+        Left = HorizontalDirection.Left | VerticalDirection.Middle,
+        Center = HorizontalDirection.Center | VerticalDirection.Middle,
+        Right = HorizontalDirection.Right | VerticalDirection.Middle,
+
+        BottomLeft = HorizontalDirection.Left | VerticalDirection.Bottom,
+        Bottom = HorizontalDirection.Center | VerticalDirection.Bottom,
+        BottomRight = HorizontalDirection.Right | VerticalDirection.Bottom,
+    };
+
+    public enum HorizontalDirection
+    {
+        Left = 0x1, Center = 0x2, Right = 0x4
+    }
+
+    public enum VerticalDirection
+    {
+        Top = 0x10, Middle = 0x20, Bottom = 0x40
+    }
 
     public enum DirectionMask
     {
